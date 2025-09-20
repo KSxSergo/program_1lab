@@ -26,12 +26,6 @@ jobs:
         run: |
           cmake -B build -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake"
 
-      - name: Configure CMake
-        run: |
-          mkdir build
-          cd build
-          cmake .. -DBOOST_ROOT="C:/local/boost_1_83_0"
-
       - name: Build
         run: cmake --build build --config Release
 
