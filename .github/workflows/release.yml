@@ -64,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: linux-package
-          path: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          path: helloworld-1.0.${{ github.run_number }}-Linux.deb
 
   create-release:
     runs-on: ubuntu-latest
@@ -98,8 +98,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./helloworld-1.0.${{ github.run_number }}-Linux.deb
+          asset_name: helloworld-1.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
 
       - name: Upload Windows Release Asset
