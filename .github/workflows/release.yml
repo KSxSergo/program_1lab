@@ -16,8 +16,15 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Boost via Chocolatey
-        run: choco install boost -y
+      - name: Install vcpkg and dependencies
+        run: |
+          git clone https://github.com/Microsoft/vcpkg.git
+          .\vcpkg\bootstrap-vcpkg.bat
+          .\vcpkg\vcpkg install boost-test
+
+      - name: Configure with CMake
+        run: |
+          cmake -B build -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake"
 
       - name: Configure CMake
         run: |
