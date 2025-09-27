@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows-package
-          path: build/Release/helloworld-1.0.${{ github.run_number }}-Windows.zip
+          path: helloworld-1.0.${{ github.run_number }}-Windows.zip
 
   for_linux:
     runs-on: ubuntu-latest
