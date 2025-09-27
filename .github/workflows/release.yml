@@ -113,6 +113,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          assets_path: helloworld-1.0.${{ github.run_number }}-Windows.zip
+          assets_path: ./helloworld-1.0.${{ github.run_number }}-Windows.zip
           asset_name: helloworld-1.0.${{ github.run_number }}-Windows.zip
           asset_content_type: application/zip
